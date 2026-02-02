@@ -1,0 +1,20 @@
+# Dependency directories
+node_modules/
+npm-debug.log
+
+# Environment variables (Never upload secrets!)
+.env
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+
+# IDE settings (Optional, but good practice)
+.vscode/
+.idea/
+
+# Coverage reports (If you add testing later)
+coverage/

@@ -1,0 +1,19 @@
+{
+  "name": "url-service",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1",
+    "ioredis": "^5.9.2",
+    "kafkajs": "^2.2.4",
+    "mongoose": "^9.1.5",
+    "nanoid": "^5.1.6"
+  }
+}
