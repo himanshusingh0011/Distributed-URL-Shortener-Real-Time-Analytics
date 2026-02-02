@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-Time URL Analytics</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+        #counter { font-size: 80px; color: #27ae60; font-weight: bold; }
+        .log { text-align: left; max-width: 600px; margin: 20px auto; border: 1px solid #ddd; padding: 10px; height: 300px; overflow-y: scroll; }
+    </style>
+</head>
+<body>
+    <h1>Live Click Stream</h1>
+    <div id="counter">Waiting for events...</div>
+    <div class="log" id="log"></div>
+
+    <script>
+        const eventSource = new EventSource('/events');
+        const log = document.getElementById('log');
+        const counter = document.getElementById('counter');
+
+        eventSource.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            
+            // Visual Update
+            counter.innerText = `Click: ${data.shortId}`;
+            counter.style.color = counter.style.color === '#27ae60' ? '#2980b9' : '#27ae60'; // Flash color
+            
+            // Log Update
+            const entry = document.createElement('div');
+            entry.innerText = `[${new Date().toLocaleTimeString()}] Clicked: ${data.shortId}`;
+            log.prepend(entry);
+        };
+    </script>
+</body>
+</html>
